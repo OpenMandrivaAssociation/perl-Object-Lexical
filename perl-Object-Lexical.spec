@@ -11,6 +11,7 @@ Source0:	%{real_name}-%{version}.tar.bz2
 BuildRequires:	perl-devel
 BuildRequires:	perl-PadWalker
 BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Object::Lexical provides syntactic sugar to create objects.
