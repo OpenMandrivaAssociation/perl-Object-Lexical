@@ -9,7 +9,7 @@ Summary:	Object::Lexical - Syntactic Sugar for Easy Object Instance Data &
 License:	GPL+ or Artistic
 Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	%{upstream_name}-%{upstream_version}.tar.bz2
+Source0:	http://www.cpan.org/modules/by-module/%{upstream_name}-%{upstream_version}.tar.bz2
 
 BuildRequires:	perl-PadWalker
 BuildArch:	noarch
