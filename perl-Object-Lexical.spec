@@ -3,17 +3,17 @@
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	%mkrel 1
+Release:	2
 
 Summary:	Object::Lexical - Syntactic Sugar for Easy Object Instance Data &
 License:	GPL+ or Artistic
 Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/%{upstream_name}-%{upstream_version}.tar.bz2
+Source0:	%{upstream_name}-%{upstream_version}.tar.bz2
 
-BuildRequires:	perl-PadWalker
+BuildRequires:	perl-devel
+BuildRequires:	perl(PadWalker)
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Object::Lexical provides syntactic sugar to create objects.
@@ -33,19 +33,40 @@ issued.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 make test
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean 
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc Changes README
 %{perl_vendorlib}/Object/Lexical.pm
 %{_mandir}/*/*
+
+
+%changelog
+* Tue Jul 28 2009 Jérôme Quelin <jquelin@mandriva.org> 0.20.0-1mdv2010.0
++ Revision: 401999
+- rebuild using %%perl_convert_version
+
+* Wed Jul 23 2008 Thierry Vignaud <tvignaud@mandriva.com> 0.02-4mdv2009.0
++ Revision: 241805
+- rebuild
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Sat Sep 15 2007 Guillaume Rousse <guillomovitch@mandriva.org> 0.02-2mdv2008.0
++ Revision: 86721
+- rebuild
+
+
+* Wed Sep 13 2006 Oden Eriksson <oeriksson@mandriva.com> 0.02-1mdv2007.0
+- rebuild
+
+* Thu Jul 14 2005 Oden Eriksson <oeriksson@mandriva.com> 0.02-1mdk
+- initial Mandriva package
+
