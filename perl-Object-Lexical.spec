@@ -1,15 +1,13 @@
 %define upstream_name    Object-Lexical
-%define upstream_version 0.02
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	5
+Version:	0.02
+Release:	6
 
 Summary:	Object::Lexical - Syntactic Sugar for Easy Object Instance Data &
 License:	GPL+ or Artistic
 Group:		Development/Perl
 URL:		https://metacpan.org/dist/Object-Lexical
-Source0:	%{upstream_name}-%{upstream_version}.tar.bz2
+Source0:	%{upstream_name}-%{version}.tar.bz2
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -31,7 +29,7 @@ autovivicates, and no "variables must be declared" warning is
 issued.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -50,9 +48,7 @@ make test
 %changelog
 * Tue Jul 28 2009 Jérôme Quelin <jquelin@mandriva.org> 0.20.0-1mdv2010.0
 + Revision: 401999
-- rebuild using %%perl_convert_version
-
-* Wed Jul 23 2008 Thierry Vignaud <tvignaud@mandriva.com> 0.02-4mdv2009.0
+- rebuild using %0.02 Wed Jul 23 2008 Thierry Vignaud <tvignaud@mandriva.com> 0.02-4mdv2009.0
 + Revision: 241805
 - rebuild
 - kill re-definition of %%buildroot on Pixel's request
